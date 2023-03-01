@@ -78,16 +78,16 @@ void Directions(string input)
     if (countYPosition != 0 && countXPosition!=0) { result += " and "; }
     if (countYPosition > 0) { result += ResultingDirection("North", countYPosition); }
     else if (countYPosition < 0) { countYPosition *= -1; result += ResultingDirection("South", countYPosition); }
-    double linearDistance = Math.Sqrt(Math.Pow(countXPosition, 2) + Math.Pow(countYPosition, 2));
 
+    double linearDistance = Math.Sqrt(Math.Pow(countXPosition, 2) + Math.Pow(countYPosition, 2));
     Console.WriteLine(result);
     Console.ResetColor();
-
     Console.Write($"Lineare distance = ");
     Color(ConsoleColor.Magenta);
-
     Console.Write($"{double.Round(linearDistance, 2)}m ");
+
     Console.ResetColor();
+
     Console.Write(", Manhatten distance = ");
     Color(ConsoleColor.Magenta);
     Console.WriteLine($"{countXPosition + countYPosition}m");
