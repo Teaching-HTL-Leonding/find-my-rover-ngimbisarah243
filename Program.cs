@@ -74,10 +74,10 @@ void Directions(string input)
 
     if (countXPosition == 0 && countYPosition == 0) { Console.WriteLine("in the base station"); }
     if (countXPosition > 0) { result += ResultingDirection("East", countXPosition); }
-    else if (countXPosition < 0) { countXPosition *= -1; result += ResultingDirection("West", countXPosition); }
+    else if (countXPosition < 0) { result += ResultingDirection("West", countXPosition*=-1); }
     if (countYPosition != 0 && countXPosition!=0) { result += " and "; }
     if (countYPosition > 0) { result += ResultingDirection("North", countYPosition); }
-    else if (countYPosition < 0) { countYPosition *= -1; result += ResultingDirection("South", countYPosition); }
+    else if (countYPosition < 0) { result += ResultingDirection("South", countYPosition*=-1); }
 
     double linearDistance = Math.Sqrt(Math.Pow(countXPosition, 2) + Math.Pow(countYPosition, 2));
     Console.WriteLine(result);
