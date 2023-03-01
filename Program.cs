@@ -24,7 +24,6 @@ Directions(input);
 Console.ReadKey();
 
 
-
 void Directions(string input)
 {
     var inputInList = new List<string>();
@@ -69,25 +68,30 @@ void Directions(string input)
     }
 
     string result = string.Empty;
+
     Console.Write("The rover is ");
     Color(ConsoleColor.Magenta);
+
     if (countXPosition == 0 && countYPosition == 0) { Console.WriteLine("in the base station"); }
     if (countXPosition > 0) { result += ResultingDirection("East", countXPosition); }
     else if (countXPosition < 0) { countXPosition *= -1; result += ResultingDirection("West", countXPosition); }
-    if (countYPosition != 0) { result += " and "; }
+    if (countYPosition != 0 && countXPosition!=0) { result += " and "; }
     if (countYPosition > 0) { result += ResultingDirection("North", countYPosition); }
     else if (countYPosition < 0) { countYPosition *= -1; result += ResultingDirection("South", countYPosition); }
     double linearDistance = Math.Sqrt(Math.Pow(countXPosition, 2) + Math.Pow(countYPosition, 2));
+
     Console.WriteLine(result);
     Console.ResetColor();
 
     Console.Write($"Lineare distance = ");
     Color(ConsoleColor.Magenta);
+
     Console.Write($"{double.Round(linearDistance, 2)}m ");
     Console.ResetColor();
     Console.Write(", Manhatten distance = ");
     Color(ConsoleColor.Magenta);
     Console.WriteLine($"{countXPosition + countYPosition}m");
+
     Console.ResetColor();
 }
 
